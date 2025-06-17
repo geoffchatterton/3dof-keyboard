@@ -34,7 +34,7 @@ window.addEventListener('resize', () => {
 }, false);
 
 // Cylinder geometry
-const texture = new THREE.TextureLoader().load('./blueprint-3dof.png');
+const texture = new THREE.TextureLoader().load('./keyboard.png');
 texture.wrapS = THREE.RepeatWrapping;
 //texture.offset.x = 100;
 //texture.repeat.x = -1; // flip horizontally
@@ -55,7 +55,7 @@ scene.add(cylinderMesh);
 const raycaster = new THREE.Raycaster();
 const centerNDC = new THREE.Vector2(0, 0);  // x=0,y=0 is exactly the middle of the viewport
 
-
+const canvas = document.getElementById("three-canvas");
 
 window.addEventListener("deviceorientation", (event) => {
   //console.log("a b g", event.alpha.toFixed(0), event.beta.toFixed(0), event.gamma.toFixed(0));
@@ -102,7 +102,6 @@ window.addEventListener('keydown', e => {
   // pass along your UV coords as before
   onTexturePointSelected(hit.uv.x, hit.uv.y);
 });
-
 
 function makeCircleTexture(size = 64, color = 'red') {
   const canvas = document.createElement('canvas');
